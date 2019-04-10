@@ -38,13 +38,11 @@ class Autoencoder_Callbacks(keras.callbacks.Callback):
         for x in range(r-1):
             img_array.append(self.validation_data[0][randint(0, validation_length-1)])
         
-        np.concatenate(img_array)
 
         gen_img_array = []
         for img in img_array:
             gen_img_array.append(self.model.predict(np.array([img]))[0])
 
-        np.concatenate(gen_img_array)
 
         original = []
         reconstruction = []
@@ -57,8 +55,6 @@ class Autoencoder_Callbacks(keras.callbacks.Callback):
             # cv2.imshow("reconstruction", reconstruction)
             # cv2.waitKey(0)
 
-        np.concatenate(original)
-        np.concatenate(reconstruction)
 
         gen_imgs = [original, reconstruction]
 

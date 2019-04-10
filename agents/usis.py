@@ -6,7 +6,6 @@ from keras.layers import Lambda, Input, Conv2D, \
 from keras_contrib.layers.normalization import InstanceNormalization
 from keras.engine import Layer, InputSpec
 from keras import layers
-from keras.utils.vis_utils import plot_model
 from keras.utils import multi_gpu_model, plot_model, conv_utils
 from keras.callbacks import TensorBoard
 from keras.models import load_model, Model
@@ -56,7 +55,7 @@ class USIS(agent.Agent):
         name='expand_3')(x)
 
         self.model = Model(inputs, x)
-        self.model.compile(optimizer='adam', loss='mean_squared_logarithmic_error')
+        self.model.compile(optimizer='adam', loss='mean_squared_logarithmic_error', metrics=['accuracy'])
 
         #self.usis.compile(optimizer='adam')
         plot_model(self.model, to_file="vae_plot.png", show_layer_names=True, show_shapes=True)

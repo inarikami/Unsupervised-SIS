@@ -95,7 +95,7 @@ def denormalize(x):
     # Returns
         Input array scaled to RGB values within [0, 255]
     """
-    return round((x + 1) * 255 / 2)
+    return np.round((x + 1) * 255 / 2)
     
 def resize_input(x, height, width):
     images_resized = []
