@@ -4,3 +4,5 @@
 *.local
 images/*
 *.hdf5
+*.zip
+__main__.spec

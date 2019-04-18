@@ -7,7 +7,7 @@ from keras_contrib.layers.normalization import InstanceNormalization
 from keras.engine import Layer, InputSpec
 from keras import layers
 from keras.utils import multi_gpu_model, plot_model, conv_utils
-from keras.callbacks import TensorBoard
+from keras.callbacks import TensorBoard, ModelCheckpoint
 from keras.models import load_model, Model
 from keras.losses import mean_squared_logarithmic_error, mse
 import numpy as np
@@ -45,8 +45,6 @@ class USIS(agent.Agent):
         x = Conv2D(self.classes, kernel_size=1, padding='same',
         use_bias=False, activation='softmax',
         name='expand_1')(x)
-
-        x = Softmax(axis=-1)(x)
 
         x = self.u_net(x, 'unet_decode_') #decoder
 
