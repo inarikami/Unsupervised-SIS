@@ -4,3 +4,5 @@
 *.local
 images/*
 *.hdf5
+*.jpg
+Graph/events.out.tfevents.1554859814.DESKTOP-KT3VL8O
